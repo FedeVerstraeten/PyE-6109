@@ -1,0 +1,4 @@
+#GITIGNORE v1.0
+*.pdf
+*.log
+*.aux
