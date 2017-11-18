@@ -1,0 +1,76 @@
+% simul.txt
+
+# PABLO
+
+Los valores que obtuve al realizar las simulaciones para el inciso 5 son :
+   
+     #favorables=8165
+     #totales=10000
+     => prob pedida =0.8165
+
+Para el inciso 6, realicé la simulación con dos lotes de datos:
+
+*) 10 000 muestras:
+
+     #favorables=146
+     #totales=239
+     => prob pedida =0.6109
+
+
+**) 1 000 000 muestras:
+
+     #favorables=13355
+     #totales=24118
+     => prob pedida =0.5537
+
+# FEDE
+
+Los valores que obtuve al realizar las simulaciones para el inciso 5 son :
+   
+     #favorables=8067
+     #totales=10000
+     => prob pedida =0.8067
+
+
+Para el inciso 6,solo realicé la simulación con un lote de datos:
+
+*) 10 000 muestras:
+
+     #favorables=160
+     #totales=289
+     => prob pedida =0.5536
+
+# LUCIA
+
+Los valores que obtuve al realizar las simulaciones para el inciso 5 son :
+   
+     #favorables=7546
+     #totales=10000
+     => prob pedida =0.7546
+
+
+Para el inciso 6,solo realicé la simulación con un lote de datos:
+
+*) 10 000 muestras:
+
+     #favorables=152
+     #totales=222
+     => prob pedida =0.6846
+
+
+# LEONARDO
+
+Los valores que obtuve al realizar las simulaciones para el inciso 5 son :
+   
+     #favorables=7834
+     #totales=10000
+     => prob pedida =0.7834
+
+
+Para el inciso 6,solo realicé la simulación con un lote de datos:
+
+*) 10 000 muestras:
+
+     #favorables=181
+     #totales=289
+     => prob pedida =0.6263
