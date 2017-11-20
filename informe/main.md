@@ -57,12 +57,12 @@ $$a_{10} = max(-4{.}5, max(X_1) + 10^{-8}, max(X_2) + 10^{-8})$$
 
 #4. Recta de regresión
 
+En el caso evaluado, se considera el coeficiente de correlación como $\rho = \frac{100 + a}{200}$, siendo $a$ el valor de las dos últimas cifras del padrón de cada integrante. 
+Para la tendencia, podemos observar en particular el coeficiente correspondiente a Lucía ($\rho \sim 0.5$) respecto al de Pablo ($\rho \sim 1), que cuanto se acerca $\rho$ de 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva, coincidiendo con la recta de regresión.
+
 Se observa la tendencia esperada por la recta de regresión para una distribución normal estándar bivariada.
-También se puede notar que a medida que el coeficiente de correlación $\rho$ se aleja de cero, los puntos del gráfico se acercan más a la recta de regresión. 
 
-En el caso evaluado donde $\rho = \frac{100 + a}{200}$, siendo $a$ el valor de las dos últimas cifras del padrón de cada integrante, el cuanto más cerca está $\rho$ de 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva.
-
-A continuación se presentan los gráficos correspondientes a cada padrón de los integrantes, marcando la distribución de  puntos $(X_{1,i} , X_{2,i})$ en el plano.
+En los siguientes gráficos, generados a partir de las simulaciones, podemos observar el comportamiento de la normal bivariada obtenida respecto a diferentes coeficientes de correlación, marcando la distribución de puntos $(X_{1,i} , X_{2,i})$ en el plano.
 
 \pagebreak
 
@@ -79,12 +79,12 @@ A continuación se presentan los gráficos correspondientes a cada padrón de lo
 **Estudiante:** Leonardo Taffarel\
 **Padrón:** 97066
 
-![Función histograma de $X_2$](img/foo5_Leo.png){width=80%}
+![Recta regresión de $X_2$](img/foo5_Leo.png){width=80%}
 
 **Estudiante:** Federico Verstraeten\
 **Padrón:** 92892
 
-![Función histograma de $X_2$](img/foo5_Fede.png){width=80%}
+![Recta regresión de $X_2$](img/foo5_Fede.png){width=80%}
 
 #5. Estimación y comparación con $(\phi(1))^2$
 
