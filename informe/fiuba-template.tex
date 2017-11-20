@@ -106,6 +106,7 @@ $endif$
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+  \spanishdecimal{.}
 $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
