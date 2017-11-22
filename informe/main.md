@@ -4,7 +4,42 @@
 
 #1. Análisis y métodos de simulación
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis augue sit amet metus tristique lacinia. Curabitur sit amet tortor accumsan, hendrerit purus sit amet, volutpat dui. In molestie hendrerit elementum. Phasellus aliquam tortor nec risus auctor ullamcorper. Pellentesque et diam at metus elementum sagittis. Ut dapibus vulputate efficitur. Praesent nec tortor et mi gravida commodo a nec metus. Maecenas semper ut leo eu cursus
+El método de Box-Müller, permite la obtención de dos variables aleatorias normales independientes $X_1$ y $X_2$ a partir de dos uniformes independientes $U_1$ y $U_2$. En este sentido, se definen las variables aleatorias:
+
+$$  R := \sqrt[]{2 \textrm{ } log (U_1)}  $$
+$$  \Theta := 2 \pi U_2 $$
+
+Se puede observar que como $U_1$ y $U_2$ pertenecen a espacios de probabilidad independientes y las transformaciones que se les aplican son regulares, entonces $R$ y $\Theta$ también son independientes. Entonces,
+$$  S := R^2  $$
+$$  \implies S = 2 \textrm{ } log (U_1) $$
+$$  \implies s = 2 \textrm{ } log (u_1) = g(u_1)$$
+$$  \textrm{g es biyectiva} \implies g^{-1}(s) = e^{-\frac{s}{2}} $$
+
+Por el método del jacobiano se obtiene que:
+
+$$  \implies f_{S}(s) = \left.\frac{f_{U_1}(u_1)}{| J_g |}\right|_{u_1=g^{-1}(s)} $$
+$$  \implies f_{S}(s) = \frac{1}{2} e^{-\frac{1}{2}s} \cdot 1 \{ s>0\} $$
+$$  R = \sqrt[]{S} \quad,\quad  h(s)=\sqrt[]{s} \implies h^{-1}(r)= r^2$$
+$$  \implies f_{R}(r) = \left.\frac{f_{S}(s)}{| J_h |}\right|_{s=h^{-1}(r)} = \cdots r e^{\frac{r^2}{2}} \cdot 1 \{ r>0\} $$
+$$ \textrm{y además } f_\Theta (\theta) = \frac{1}{2 \pi} 1 \{ 0 < \theta < 2 \pi \}$$
+
+$$\implies f_{R,\Theta}(r,\theta)= f_{R}(r) f_\Theta (\theta) = \cdots = \frac{r}{2 \pi} e^{-\frac{r^2}{2}} \cdot 1 \{r>0 \quad,\quad 0 < \theta < 2 \pi \}$$
+
+Si ahora se aplica un nuevo cambio de variables :
+
+$$ (Z_1,Z_2) := (R \cos (\Theta), R \sin (\Theta))$$
+$$\implies | J_g | = r $$
+$$\implies f_{Z_1,Z_2}(z_1,z_2)= \left.\frac{f_{R,\Theta}(r,\theta)}{| J_g |}\right|_{g^{-1}}$$
+$$\implies f_{Z_1,Z_2}(z_1,z_2)= \frac{1}{2\pi} e^{-\frac{1}{2}(z_1^2 + z_2^2)}$$
+$$\implies Z_1,Z_2 \sim \mathcal{N}(0 , 1) \textrm{ independientes}$$
+
+Como es de interés simular dos normales estándar correlacionadas, se puede construir una matriz de covarianzas $A$ tal que
+$$ A =\begin{bmatrix}
+\sigma^2_1 & \frac{\rho \sigma^2_1 \sigma^2_2}{2}\\
+\frac{\rho \sigma^2_1 \sigma^2_2}{2} & \sigma^2_2
+\end{bmatrix} \quad , \quad \textrm{siendo $\rho$ el coeficiente de correlación}$$
+
+Dado que $A$ es definida positiva y hermítica, se puede aplicar la descomposición de Cholesky para A y así obtener las variables aleatorias $X_1$ y $X_2$ normales estándar correlacionadas.
 
 
 #2. Simulación de Variables Aleatorias
