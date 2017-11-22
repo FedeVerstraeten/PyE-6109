@@ -2,7 +2,12 @@
 
 *Objetivo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis augue sit amet metus tristique lacinia. Curabitur sit amet tortor accumsan, hendrerit purus sit amet, volutpat dui. In molestie hendrerit elementum. Phasellus aliquam tortor nec risus auctor ullamcorper. Pellentesque et diam at metus elementum sagittis. Ut dapibus vulputate efficitur. Praesent nec tortor et mi gravida commodo a nec metus. Maecenas semper ut leo eu cursus.*
 
-#1. Tabla de simulaciones
+#1. Análisis y métodos de simulación
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis augue sit amet metus tristique lacinia. Curabitur sit amet tortor accumsan, hendrerit purus sit amet, volutpat dui. In molestie hendrerit elementum. Phasellus aliquam tortor nec risus auctor ullamcorper. Pellentesque et diam at metus elementum sagittis. Ut dapibus vulputate efficitur. Praesent nec tortor et mi gravida commodo a nec metus. Maecenas semper ut leo eu cursus
+
+
+#2. Simulación de Variables Aleatorias
 
 A partir de las distintas implementaciones provistas por la cátedra, para la simulación de normales estándar independientes mediante el métodode *Box-Muller* y normales estándar correlacionales mediante la descomposición de *Cholesky* de la matriz de covarianzas, se optó utilizar la implementación `simulacion_normal_bivariada_numpy.py`.
 
@@ -36,13 +41,12 @@ Cov =
  \end{pmatrix}
 $$
 
-#2. Función de distribución empírica
+#3. Análisis de los gráficos
 
 Por medio de la simulación se obtienen el gráfico de la distribución empírica de la variable $X_2$ para $n_{sim} = 10^4$.
 
 ![Función distribución empírica de $X_2$](img/fde.png){width=80%}
 
-#3. Función histograma
 
 Función histograma de $X_2$ con los valores límite para $n_{sim} = 10^4$: 
 
@@ -55,10 +59,10 @@ $$a_{10} = max(-4{.}5, max(X_1) + 10^{-8}, max(X_2) + 10^{-8})$$
 
 ![Función histograma de $X_2$](img/hist.png){width=80%}
 
-#4. Recta de regresión
+#4. Tendencia de valores
 
 En el caso evaluado, se considera el coeficiente de correlación como $\rho = \frac{100 + a}{200}$, siendo $a$ el valor de las dos últimas cifras del padrón de cada integrante. 
-Para la tendencia, podemos observar en particular el coeficiente correspondiente a Lucía ($\rho \sim 0.5$) respecto al de Pablo ($\rho \sim 1), que cuanto se acerca $\rho$ de 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva, coincidiendo con la recta de regresión.
+Para la tendencia, podemos observar en particular el coeficiente correspondiente a Lucía ($\rho \sim 0.5$) respecto al de Pablo ($\rho \sim 1$), que cuanto se acerca $\rho$ de 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva, coincidiendo con la recta de regresión.
 
 Se observa la tendencia esperada por la recta de regresión para una distribución normal estándar bivariada.
 
@@ -86,24 +90,32 @@ En los siguientes gráficos, generados a partir de las simulaciones, podemos obs
 
 ![Recta regresión de $X_2$](img/foo5_Fede.png){width=80%}
 
-#5. Estimación y comparación con $(\phi(1))^2$
+#5. Cálculo de probabilidades. Estimación y comparación de resultados
 
-Como se puede observar en las figuras (REFERENCIAR FIGURAS NORMALES BIV),  las normales simuladas $(X_1,X_2)$ tienen una distribución conjunta cuyo soporte no es de forma rectangular. En este sentido, se puede descartar la hipótesis de que sean independientes. Además, 
+Como se puede observar en las figuras de la sección anterior, las normales simuladas $(X_1,X_2)$ tienen una distribución conjunta cuyo soporte no es de forma rectangular. En este sentido, se puede descartar la hipótesis de que dichas variables sean independientes. Además, 
 
 $$X_1 , X_2 \textrm{ son independientes} \iff \rho = 0$$
 
-Esto se puede observar en la figura (REFERENCIAR FIG NORMAL BIV RHO 0), cuyo soporte es "más rectangular". Sin embargo, en las simulaciones pedidas el coeficiente de correlación $\rho$ es cercano a 1 en todos los casos, por lo que $X_1$ y $X_2$ no son independientes. Por lo tanto, se puede pensar que:
+Esto se puede observar en la figura \ref{biv_rho0}, cuyo soporte es "más rectangular". Sin embargo, en las simulaciones solicitadas el coeficiente de correlación $\rho$ toma valores del intervalo $[0{.}5 ; 1]$ y más específicamente tendiendo $\rho \rightarrow 1$ en los casos evaluados, por lo que se puede considerar que $X_1$ y $X_2$ no son independientes. 
+
+![Normal bivariada con $\rho = 0$\label{biv_rho0}](img/foo5_rho0.png){width=80%}
+
+Por lo tanto, se puede pensar que:
 
 $$\mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1) \neq \mathbb{P}(X_1 \leq 1) \cdot \mathbb{P}(X_2 \leq 1)$$
 
 $$\implies \mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1) \neq (\Phi(1))^2$$
 
-En este sentido, se implementó un ciclo que contara los casos favorables de la simulación (es decir, que cumplieran la condición de la intersección) y se los dividió por los casos totales (es decir, el tamaño de la simulación). Los resultados obtenidos son :\\
+En este sentido, a partir del código provisto por la cátedra, se implementó un ciclo que permitiera contar los casos favorables de la simulación (es decir, que cumplieran la condición de la intersección) y dividiendolo por los casos totales (es decir, el tamaño de la simulación). A partir de esto se obtuvieron los siguientes resultados:
 
-(SI PODÉS, PRESENTA LOS RESULTADOS EN UNA TABLA QUE TENGA PADRON USADO, RHO, CASOS FAVORABLES Y TOTALES, PROBABILIDAD CALCULADA Y EL $(\Phi(1))^2$ , QUE ES EL MISMO PARA TODAS LAS SIM)
+\hfill
 
-  
-#6. Estimación probabilidad condicional (Bonus)
+|Padrón|$\rho$|Favorables|Totales|$\mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1)$|$(\Phi(1))^2$|
+|:------:|:-------:|:----------:|:-------:|:-----------------------:|:--------:|
+|  96993 | 0.965   |        8165|    10000|                                  0.8165|      0.70785|
+|  97112 | 0.560   |        7546|    10000|                                  0.7546|      0.70785|
+|  97066 | 0.830   |        7834|    10000|                                  0.7834|      0.70785|
+|  92892 | 0.960   |        8067|    10000|                                  0.8067|      0.70785|
 
 En base al ejercicio **5.4)** de la guía de ejercicios, dada una normal bivariada $(X_1,X_2)$, se puede obtener que:
 
@@ -117,3 +129,5 @@ $$\implies \mathbb{P}(X_1 \leq 1|X_2=1) \approx 0{.}5531$$
 Dado que la simulación tiene un rango finito de puntos, se buscó aumentar la cantidad de simulaciones,para que al marginar, la probabilidad no varíe  demasiado y se parezca al valor esperado. Por esto mismo, se aumentó la cantidad de número aleatorios (o pseudo-aleatorios) generados de 10 000 a 1 000 000. Además, se reemplazó la condición de $X_2 = 1$ por una condición más abarcativa para que se aproximaran mejor los puntos de la simulación: se utilizó la condición $0{.}95 \leq X_2 < 1{.}05$. Los resultados obtenidos son:
 
 (PRESENTAR RESULTADOS EN TABLA CON CASOS FAVORABLES, CASOS TOTALES , PROB CALCULADA Y PROB ESPERADA. SI QUERES PODEMOS PONER LO QUE MANDE DE LAS SIMULACIONES DE 10 000 MUESTRAS Y ALGUNA DIFERENCIA O ERROR DE SIMULACION)
+
+#6. Conclusiones      
