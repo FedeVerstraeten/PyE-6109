@@ -268,13 +268,13 @@ def norm_biv(ZZ, Mu, Cov):
 #--------------------------------------------------------------
 
 #Datos
-n_sim = int(1e6) #Numero de simulaciones
+n_sim = int(1e4) #Numero de simulaciones
 mu1 = 0.0
 mu2 = 0.0
 var1 = 1.0
 var2 = 1.0
 #rho = 0.8
-rho = (100+92)/200     # AGREGADO POR PABLO J. GONZALEZ
+rho = (100+93)/200     # AGREGADO POR PABLO J. GONZALEZ
 
 #limites para histogramas - Modificar a gusto
 aa = np.array([-4.5, -3., -2., -1., -0.5, 0., 0.5, 1., 2., 3., 4.5])
@@ -290,18 +290,20 @@ Cov = np.array([ [var1, rho*(var1*var2)**0.5],
 XX = norm_biv(ZZ, Mu, Cov)
 
 ##################
+# EXPORTACION DE DATOS DE LAS SIMULACIONES # AGREGADO POR PABLO J. GONZALEZ
 np.savetxt("Uniformes.csv", UU, delimiter=";", fmt="%.5e")
 np.savetxt("Normales_indep.csv", ZZ, delimiter=";", fmt="%.5e")
 np.savetxt("Matriz_cov.csv", Cov, delimiter=";", fmt="%.5e")
 np.savetxt("Normal_biv.csv", XX, delimiter=";", fmt="%.5e")
-##################  # AGREGADO POR PABLO J. GONZALEZ
-
+##################  
+# CICLOS DE CONTADORES, CALCULOS DE PROB COMO LAPLACE 
+# AGREGADO POR PABLO J. GONZALEZ
 count=0
 for j in range(n_sim):
   if (XX[j,0]<=1) and (XX[j,1]<=1):
     count +=1
     
-print "casos favorables punto 5:",count     
+print "casos favorables punto 5:",count 
 print "casos totales punto 5:",n_sim 
 print "prob punto 5:",count/n_sim 
 
@@ -332,6 +334,11 @@ print('Limites: ' + str(aa))
 print('Frec. X2: ' + str(frec_x2))
 print('Hist. X2: ' + str(hist_x2))
 
+# AGREGADO POR PABLO J. GONZALEZ
+#np.savetxt("Limites.csv", aa, delimiter=";", fmt="%.2e")
+#np.savetxt("Frec. X2.csv", frec_x2, delimiter=";", fmt="%.4e")
+#np.savetxt("Hist. X2.csv", hist_x2, delimiter=";", fmt="%.4e")
+
 xx1_fde, yy1 = fde(XX[:,0])
 xx2_fde, yy2 = fde(XX[:,1])
 
@@ -354,7 +361,7 @@ pl.ylabel('Fde')
 pl.title('n_sim = '+str(n_sim))
 pl.xlim(-3., 3.)
 figura2.show()
-figura2.savefig('foo2.png')    # AGREGADO POR PABLO J. GONZALEZ    
+#figura2.savefig('foo2.png')    # AGREGADO POR PABLO J. GONZALEZ    
 
 #figura3 = pl.figure()
 #pl.hist(XX[:,0], bins = aa, normed=True, label='hist', lw=2)
@@ -373,7 +380,7 @@ pl.xlabel('x1')
 pl.ylabel('hist')
 pl.title('n_sim = '+str(n_sim))
 figura4.show()
-figura4.savefig('foo4.png')    # AGREGADO POR PABLO J. GONZALEZ
+#figura4.savefig('foo4.png')    # AGREGADO POR PABLO J. GONZALEZ
 
 figura5 = pl.figure()
 pl.plot(XX[:,0], XX[:,1], '.', label='x1, x2', lw=1)
@@ -385,6 +392,6 @@ pl.xlim(-4.5, 4.5)
 pl.ylim(-4.5, 4.5)
 pl.title('Normal bivariada, rho = '+ str(rho) + ' n_sim = '+str(n_sim))
 figura5.show()
-figura5.savefig('foo5.png')    # AGREGADO POR PABLO J. GONZALEZ
+figura5.savefig('foo5_test.png')    # AGREGADO POR PABLO J. GONZALEZ
 ```
 
