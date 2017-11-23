@@ -151,7 +151,6 @@ $$\implies \mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1) \neq (\Phi(1))^2$$
 
 En este sentido, a partir del código provisto por la cátedra, se implementó un ciclo que permitiera contar los casos favorables de la simulación (es decir, que cumplieran la condición de la intersección) y dividiendolo por los casos totales (es decir, el tamaño de la simulación). A partir de esto se obtuvieron los siguientes resultados:
 
-\pagebreak
 
 |Padrón|$\rho$|Favorables|Totales|$\mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1)$|$(\Phi(1))^2$|
 |:------:|:-------:|:----------:|:-------:|:-----------------------:|:--------:|
