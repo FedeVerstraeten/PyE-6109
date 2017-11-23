@@ -18,7 +18,7 @@ Por el método del jacobiano se obtiene que:
 $$  \implies f_{S}(s) = \left.\frac{f_{U_1}(u_1)}{| J_g |}\right|_{u_1=g^{-1}(s)} $$
 $$  \implies f_{S}(s) = \frac{1}{2} e^{-\frac{1}{2}s} \cdot 1 \{ s>0\} $$
 $$  R = \sqrt[]{S} \quad,\quad  h(s)=\sqrt[]{s} \implies h^{-1}(r)= r^2$$
-$$  \implies f_{R}(r) = \left.\frac{f_{S}(s)}{| J_h |}\right|_{s=h^{-1}(r)} = \cdots r e^{\frac{r^2}{2}} \cdot 1 \{ r>0\} $$
+$$  \implies f_{R}(r) = \left.\frac{f_{S}(s)}{| J_h |}\right|_{s=h^{-1}(r)} = \cdots = r e^{\frac{r^2}{2}} \cdot 1 \{ r>0\} $$
 $$ \textrm{y además } f_\Theta (\theta) = \frac{1}{2 \pi} 1 \{ 0 < \theta < 2 \pi \}$$
 
 $$\implies f_{R,\Theta}(r,\theta)= f_{R}(r) f_\Theta (\theta) = \cdots = \frac{r}{2 \pi} e^{-\frac{r^2}{2}} \cdot 1 \{r>0 \quad,\quad 0 < \theta < 2 \pi \}$$
@@ -42,7 +42,7 @@ Dado que $A$ es definida positiva y hermítica, se puede aplicar la descomposici
 
 #2. Simulación de Variables Aleatorias
 
-A partir de las distintas implementaciones provistas por la cátedra, para la simulación de normales estándar independientes mediante el métodode *Box-Muller* y normales estándar correlacionales mediante la descomposición de *Cholesky* de la matriz de covarianzas, se optó utilizar la implementación `simulacion_normal_bivariada_numpy.py`.
+A partir de las distintas implementaciones provistas por la cátedra, para la simulación de normales estándar independientes mediante el método de *Box-Müller* y normales estándar correlacionales mediante la descomposición de *Cholesky* de la matriz de covarianzas, se optó utilizar la implementación `simulacion_normal_bivariada_numpy.py`.
 
 Se presentan en la siguiente tabla las primeras 3 (tres) simulaciones, donde cada columna representan:
 
@@ -64,8 +64,8 @@ Para las simulaciones se consideró un coeficiente de correlación $\rho = 0{.}9
 $$
 Cov =
  \begin{pmatrix}
-  \Var[Z_1] & \rho\sqrt{\Var[Z_1] \cdot Var(Z_2)}\\
-  \rho\sqrt{\Var[Z_1] \cdot Var(Z_2)} & Var(Z_2) 
+  \Var[Z_1] & \rho\sqrt{\Var[Z_1] \cdot Var[Z_2]}\\
+  \rho\sqrt{\Var[Z_1] \cdot Var[Z_2]} & Var[Z_2] 
  \end{pmatrix}
 =
  \begin{pmatrix}
@@ -76,7 +76,7 @@ $$
 
 #3. Análisis de los gráficos
 
-Es de interés obtener la función de distribución empírica y el histograma de $X_1$ o de $X_2$ para comparar los gráficos contra lo esperado, si fueran variables aleatorias normales estándar independientes. Dado que $X_1$ y $X_2$ están correlacionadas, se podría esperar que las variables condicionadas $X_1|X_2$ o $X_2|X_1$ tengan una función de distribución y una función densidad distintas a las de una normal estándar. Sin embargo, como se pide en el enunciado, se obtuvieron las funciones de distribución e histograma de las variables $X_1$ y $X_2$ (notesé que no son las mismas variables aleatorias). Los resultados obtenidos para $X_2$ pueden verse en las figuras \label{func_fde} y \label{func_hist}.
+Es de interés obtener la función de distribución empírica y el histograma de $X_1$ o de $X_2$ para comparar los gráficos contra lo esperado, si fueran variables aleatorias normales estándar independientes. Dado que $X_1$ y $X_2$ están correlacionadas, se podría esperar que las variables condicionadas $X_1|X_2$ o $X_2|X_1$ tengan una función de distribución y una función densidad distintas a las de una normal estándar. Sin embargo, como se pide en el enunciado, se obtuvieron las funciones de distribución e histograma de las variables $X_1$ y $X_2$ (nótese que no son las mismas variables aleatorias). Los resultados obtenidos para $X_2$ pueden verse en las figuras \label{func_fde} y \label{func_hist}.
 
 Gráfico de la distribución empírica de la variable $X_2$ para $n_{sim} = 10^4$.
 
@@ -129,7 +129,7 @@ En los siguientes gráficos, generados a partir de las simulaciones, podemos obs
 
 ![Recta regresión con a = 92](img/foo5_Fede.png){width=80%}
 
-Podemos observar en particular, que si el coeficiente de correlación fuera $\rho \sim 0.5$, como el ejemplo de la figura \ref{sim_padron_bajo} respecto a los simulados a partir del *padrón* de los integrantes ($\rho \sim 1$), que cuanto se acerca $\rho$ de 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva, coincidiendo con la recta de regresión.
+Podemos observar en particular, que si el coeficiente de correlación fuera $\rho \sim 0{.}5$, como el ejemplo de la figura \ref{sim_padron_bajo} respecto a los simulados a partir del *padrón* de los integrantes ($\rho \sim 1$), que cuando $\rho$ tiende a 1, más se acercan los puntos del gráfico a formar una recta de pendiente positiva, coincidiendo con la recta de regresión.
 
 ![Recta regresión con a = 12$\label{sim_padron_bajo}$](img/padron_bajo.png){width=80%}
 
@@ -145,14 +145,14 @@ Esto se puede observar en la figura \ref{biv_rho0}, cuyo soporte es "más rectan
 
 Por lo tanto, se puede pensar que:
 
-$$\mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1) \neq \mathbb{P}(X_1 \leq 1) \cdot \mathbb{P}(X_2 \leq 1)$$
+$$\mathbb{P}(X_1 \leq 1 \cap X_2 \leq 1) \neq \mathbb{P}(X_1 \leq 1) \cdot \mathbb{P}(X_2 \leq 1)$$
 
-$$\implies \mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1) \neq (\Phi(1))^2$$
+$$\implies \mathbb{P}(X_1 \leq 1 \cap X_2 \leq 1) \neq (\Phi(1))^2$$
 
 En este sentido, a partir del código provisto por la cátedra, se implementó un ciclo que permitiera contar los casos favorables de la simulación (es decir, que cumplieran la condición de la intersección) y dividiendolo por los casos totales (es decir, el tamaño de la simulación). A partir de esto se obtuvieron los siguientes resultados:
 
 
-|Padrón|$\rho$|Favorables|Totales|$\mathbb{P}(X_1 \leq 1 \cap X_1 \leq 1)$|$(\Phi(1))^2$|
+|Padrón|$\rho$|Favorables|Totales|$\mathbb{P}(X_1 \leq 1 \cap X_2 \leq 1)$|$(\Phi(1))^2$|
 |:------:|:-------:|:----------:|:-------:|:-----------------------:|:--------:|
 |  96993 | 0.965   |        8165|    10000|                                  0.8165|      0.70785|
 |  92892 | 0.960   |        8067|    10000|                                  0.8067|      0.70785|
@@ -168,8 +168,8 @@ $$\implies \mathbb{P}(X_1 \leq 1|X_2=1) \approx 0{.}5531$$
 
 Dado que la simulación tiene un rango finito de puntos, se buscó aumentar la cantidad de simulaciones,para que al marginar, la probabilidad no varíe  demasiado y se parezca al valor esperado. Por esto mismo, se aumentó la cantidad de número aleatorios (o pseudo-aleatorios) generados de 10 000 a 1 000 000. Además, se reemplazó la condición de $X_2 = 1$ por una condición más abarcativa para que se aproximaran mejor los puntos de la simulación: se utilizó la condición $0{.}95 \leq X_2 < 1{.}05$. Los resultados obtenidos son:
 
-|Padrón|$\rho$|Favorables|Muestras|$\mathbb{P}(X_1 \leq 1 \text{\textbar} 0.95 < X_2 < 1.05)$|$\mathbb{P}(X_1 \leq 1 \text{\textbar} X_2=1)$|
-|:------:|:-------:|:----------:|:-------:|:---------------------------------:|:-----------------------:|
+|Padrón|$\rho$|Favorables|Muestras|$\mathbb{P}(X_1 \leq 1 \text{\textbar} 0{.}95 < X_2 < 1{.}05)$|$\mathbb{P}(X_1 \leq 1 \text{\textbar} X_2=1)$|
+|:------:|:-------:|:----------:|:-------:|:------------------------------------:|:-----------------------:|
 |  96993 | 0.965   |         146|    10000|                             0.6109|                   0.5531|
 |  96993 | 0.965   |       13355|  1000000|                             0.5537|                   0.5531|
 |  92892 | 0.960   |         160|    10000|                             0.8067|                   0.5531|
